@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>typewriter.js</title>
+	<link rel='stylesheet' href='typewriter.css'>
+</head>
+<body>
+
+	<div>
+		<h1>Default: 0.05s delay between characters</h1>
+		<p class='typewriter'>This is the first line.</p>
+		<p class='typewriter'>This is the second line.</p>
+		<p class='typewriter'>This is the third line.</p>
+	</div>
+
+	<div>
+		<h1>Custom delay: 0.1s delay between characters</h1>
+		<p class='typewriter'>This is the first line.</p>
+		<p class='typewriter'>This is the second line.</p>
+		<p class='typewriter'>This is the third line.</p>
+	</div>
+
+	<div>
+		<h1>Custom duration: 1s to type each line</h1>
+		<p class='typewriter'>This is the first line.</p>
+		<p class='typewriter'>This is the second line.</p>
+		<p class='typewriter'>This is the third line, and appears to be typed really fast because it's the longest of them all, but that's just because it takes one second, just like the rest.</p>
+	</div>
+
+	<script src='lib/Modernizr.custom.js'></script>
+	<script src='lib/pinkyswear.js'></script>
+	<script src='typewriter.js'></script>
+	<script>
+
+		function useDefaults() {
+
+			var div = document.querySelectorAll('div')[0];
+
+			// use default delay
+			typewriter.prepare(div.querySelectorAll('.typewriter'));
+			var paragraphs = div.querySelectorAll('.typewriter-active');
+
+			typewriter.type(paragraphs[0])
+				.then(function() {
+					return typewriter.type(paragraphs[1]);
+				})
+				.then(function() {
+					typewriter.type(paragraphs[2]);
+				});
+
+		}
+		useDefaults();
+
+		function useCustomDelay() {
+
+			var div = document.querySelectorAll('div')[1];
+
+			// use default delay
+			typewriter.prepare(div.querySelectorAll('.typewriter'), {delay: 0.1});
+			var paragraphs = div.querySelectorAll('.typewriter-active');
+
+			typewriter.type(paragraphs[0])
+				.then(function() {
+					return typewriter.type(paragraphs[1]);
+				})
+				.then(function() {
+					typewriter.type(paragraphs[2]);
+				});
+
+		}
+		useCustomDelay();
+
+		function useCustomDuration() {
+
+			var div = document.querySelectorAll('div')[2];
+
+			// use default delay
+			typewriter.prepare(div.querySelectorAll('.typewriter'), {duration: 1});
+			var paragraphs = div.querySelectorAll('.typewriter-active');
+
+			typewriter.type(paragraphs[0])
+				.then(function() {
+					return typewriter.type(paragraphs[1]);
+				})
+				.then(function() {
+					typewriter.type(paragraphs[2]);
+				});
+
+		}
+		useCustomDuration();
+
+	</script>
+
+</body>
+</html>

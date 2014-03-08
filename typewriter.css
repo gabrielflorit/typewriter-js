@@ -1,0 +1,16 @@
+.typewriter {
+	display: none;
+}
+
+.typewriter-active span {
+	/* add all the vendor prefixes */
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 0s;
+	transition-timing-function: linear;
+	font-family: monospace;
+}
+
+.typewriter-active span.show {
+	opacity: 1;
+}
