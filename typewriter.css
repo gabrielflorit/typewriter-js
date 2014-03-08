@@ -3,11 +3,13 @@
 }
 
 .typewriter-active span {
-	/* add all the vendor prefixes */
 	opacity: 0;
-	transition-property: opacity;
-	transition-duration: 0s;
-	transition-timing-function: linear;
+
+	-webkit-transition: opacity 0s linear;
+	-moz-transition: opacity 0s linear;
+	-o-transition: opacity 0s linear;
+	transition: opacity 0s linear;
+
 	font-family: monospace;
 }
 
