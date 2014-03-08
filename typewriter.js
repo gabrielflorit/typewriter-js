@@ -1,4 +1,18 @@
 var typewriter = (function () {
+
+	var transitionEndPrefixes = [
+		'webkitTransitionEnd',
+		'oTransitionEnd',
+		'otransitionend',
+		'transitionend'
+	];
+
+	var prefixes = [
+		'-webkit-',
+		'-moz-',
+		'-o-',
+		''
+	];
 	
 	function prepareElement(element, options) {
 		
@@ -21,6 +35,7 @@ var typewriter = (function () {
 			var opts = options || {};
 			
 			var delay;
+			var computedDelay;
 			
 			// use delay if present,
 			if (options.delay) {
@@ -37,13 +52,13 @@ var typewriter = (function () {
 				span = document.createElement('span');
 				span.innerHTML = characters[i];
 
-				// TODO: i get a feeling all this vendor prefix nonsense isn't clever
-
 				// using .toFixed(3) - no need to use less than milliseconds
-				span.style.setProperty('-webkit-transition-delay', (i*delay).toFixed(3)  + 's');
-				span.style.setProperty('-moz-transition-delay',    (i*delay).toFixed(3)  + 's');
-				span.style.setProperty('-o-transition-delay',      (i*delay).toFixed(3)  + 's');
-				span.style.setProperty('transition-delay',         (i*delay).toFixed(3)  + 's');
+				computedDelay = (i*delay).toFixed(3)  + 's';
+
+				// TODO: i get a feeling all this vendor prefix nonsense isn't clever
+				for (var j = 0; j < prefixes.length; j++) {
+					span.style.setProperty(prefixes[j] + 'transition-delay', computedDelay);
+				}
 				
 				fragment.appendChild(span);
 			}
@@ -67,7 +82,7 @@ var typewriter = (function () {
 			prepareElement(elements[i], options || {});
 		}
 	}
-	
+
 	function type(element) {
 		// wait 10 ms before typing - not exactly sure why i have to do this :(
 		var promise = pinkySwear();
@@ -75,15 +90,20 @@ var typewriter = (function () {
 		setTimeout(function() {
 			
 			var children = element.children;
+
 			for (i = 0; i < children.length; i++) {
 
 				// add event listener on last child
 				if (i === children.length - 1) {
-					// TODO: add all the vendor prefixes
-					children[i].addEventListener('transitionend', function(event) {
-						promise(true);
-					});
-					
+
+					// add all the vendor prefixes
+					// this feels silly to me
+					for (var j = 0; j < transitionEndPrefixes.length; j++) {
+						children[i].addEventListener(transitionEndPrefixes[j], function(event) {
+							promise(true);
+						});
+					}
+
 				}
 
 				// show child
