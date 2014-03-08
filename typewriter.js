@@ -36,9 +36,14 @@ var typewriter = (function () {
 			for (i = 0; i < characters.length; i++) {
 				span = document.createElement('span');
 				span.innerHTML = characters[i];
-				// TODO: add all the vendor prefixes
-				// use .toFixed(3) - no need to use less than milliseconds
-				span.style.setProperty('transition-delay', (i*delay).toFixed(3)  + 's');
+
+				// TODO: i get a feeling all this vendor prefix nonsense isn't clever
+
+				// using .toFixed(3) - no need to use less than milliseconds
+				span.style.setProperty('-webkit-transition-delay', (i*delay).toFixed(3)  + 's');
+				span.style.setProperty('-moz-transition-delay',    (i*delay).toFixed(3)  + 's');
+				span.style.setProperty('-o-transition-delay',      (i*delay).toFixed(3)  + 's');
+				span.style.setProperty('transition-delay',         (i*delay).toFixed(3)  + 's');
 				
 				fragment.appendChild(span);
 			}
