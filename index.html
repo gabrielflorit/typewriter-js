@@ -6,26 +6,9 @@
 </head>
 <body>
 
-	<div>
-		<h1>Default: 0.05s delay between characters</h1>
-		<p class='typewriter'>This is the first line.</p>
-		<p class='typewriter'>This is the second line.</p>
-		<p class='typewriter'>This is the third line.</p>
-	</div>
-
-	<div>
-		<h1>Custom delay: 0.1s delay between characters</h1>
-		<p class='typewriter'>This is the first line.</p>
-		<p class='typewriter'>This is the second line.</p>
-		<p class='typewriter'>This is the third line.</p>
-	</div>
-
-	<div>
-		<h1>Custom duration: 1s to type each line</h1>
-		<p class='typewriter'>This is the first line.</p>
-		<p class='typewriter'>This is the second line.</p>
-		<p class='typewriter'>This is the third line, and appears to be typed really fast because it's the longest of them all, but that's just because it takes one second, just like the rest.</p>
-	</div>
+	<p class='typewriter one'>Default: 0.05s delay between characters</p>
+	<p class='typewriter two'>Custom delay: 0.1s delay between characters</p>
+	<p class='typewriter three'>Custom duration: 1s to type each line. This appears to be typed really fast because it's the longest of them all, but that's just because it takes one second.</p>
 
 	<script src='libs/modernizr/modernizr.js'></script>
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
@@ -34,70 +17,29 @@
 	<script src='typewriter.js'></script>
 	<script>
 
-		function useDefaults() {
+		typewriter.prepare(document.querySelectorAll('.one'), {
+			prefix: prefix
+		});
 
-			var div = document.querySelectorAll('div')[0];
+		typewriter.prepare(document.querySelectorAll('.two'), {
+			prefix: prefix,
+			delay: 0.1
+		});
 
-			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'), {
-				prefix: prefix
+		typewriter.prepare(document.querySelectorAll('.three'), {
+			prefix: prefix,
+			duration: 1
+		});
+
+		var paragraphs = document.querySelectorAll('.typewriter-active');
+
+		typewriter.type(paragraphs[0])
+			.then(function() {
+				return typewriter.type(paragraphs[1]);
+			})
+			.then(function() {
+				typewriter.type(paragraphs[2]);
 			});
-			var paragraphs = div.querySelectorAll('.typewriter-active');
-
-			typewriter.type(paragraphs[0])
-				.then(function() {
-					return typewriter.type(paragraphs[1]);
-				})
-				.then(function() {
-					typewriter.type(paragraphs[2]);
-				});
-
-		}
-		useDefaults();
-
-		function useCustomDelay() {
-
-			var div = document.querySelectorAll('div')[1];
-
-			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'), {
-				prefix: prefix,
-				delay: 0.1
-			});
-			var paragraphs = div.querySelectorAll('.typewriter-active');
-
-			typewriter.type(paragraphs[0])
-				.then(function() {
-					return typewriter.type(paragraphs[1]);
-				})
-				.then(function() {
-					typewriter.type(paragraphs[2]);
-				});
-
-		}
-		useCustomDelay();
-
-		function useCustomDuration() {
-
-			var div = document.querySelectorAll('div')[2];
-
-			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'), {
-				prefix: prefix,
-				duration: 1
-			});
-			var paragraphs = div.querySelectorAll('.typewriter-active');
-
-			typewriter.type(paragraphs[0])
-				.then(function() {
-					return typewriter.type(paragraphs[1]);
-				})
-				.then(function() {
-					typewriter.type(paragraphs[2]);
-				});
-
-		}
-		useCustomDuration();
 
 	</script>
 
