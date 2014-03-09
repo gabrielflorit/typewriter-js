@@ -6,16 +6,18 @@
 </head>
 <body>
 
-	<p class='typewriter one'>Default: 0.05s delay between characters</p>
-	<p class='typewriter two'>Custom delay: 0.1s delay between characters</p>
+	<p class='typewriter one'>Default: 0.05s delay between characters.</p>
+	<p class='typewriter two'>Custom delay: 0.1s delay between characters.</p>
 	<p class='typewriter three'>Custom duration: 1s to type each line. This appears to be typed really fast because it's the longest of them all, but that's just because it takes one second.</p>
 
 	<script src='libs/modernizr/modernizr.js'></script>
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
-	<script src='libs/transitionEnd/src/transition-end.js'></script>
 	<script src='libs/prefix.js'></script>
+	<script src='libs/eventEnd.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
+
+		var animationend = whichEventEnd('animation');
 
 		typewriter.prepare(document.querySelectorAll('.one'), {
 			prefix: prefix
@@ -33,12 +35,12 @@
 
 		var paragraphs = document.querySelectorAll('.typewriter-active');
 
-		typewriter.type(paragraphs[0])
+		typewriter.type(paragraphs[0], { animationend: animationend, prefix: prefix })
 			.then(function() {
-				return typewriter.type(paragraphs[1]);
+				return typewriter.type(paragraphs[1], { animationend: animationend, prefix: prefix });
 			})
 			.then(function() {
-				typewriter.type(paragraphs[2]);
+				typewriter.type(paragraphs[2], { animationend: animationend, prefix: prefix });
 			});
 
 	</script>

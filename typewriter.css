@@ -3,16 +3,11 @@
 }
 
 .typewriter-active span {
-	opacity: 0;
-
-	-webkit-transition: opacity 0s linear;
-	   -moz-transition: opacity 0s linear;
-	     -o-transition: opacity 0s linear;
-	        transition: opacity 0s linear;
-
 	font-family: monospace;
+	opacity: 0;
 }
 
-.typewriter-active span.show {
-	opacity: 1;
-}
+@-webkit-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
+   @-moz-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
+     @-o-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }

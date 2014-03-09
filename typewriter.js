@@ -8,7 +8,7 @@ var typewriter = (function () {
 		var destination = document.createElement('p');
 		destination.className = 'typewriter-active';
 		
-		if (Modernizr.csstransitions) {
+		if (Modernizr.cssanimations) {
 			
 			var fragment = document.createDocumentFragment();
 			
@@ -37,7 +37,10 @@ var typewriter = (function () {
 				// using .toFixed(3) - no need to use greater precision than milliseconds
 				displayDelay = (i*delay).toFixed(3)  + 's';
 
-				span.style.setProperty(options.prefix + 'transition-delay', displayDelay);
+				span.style.setProperty(options.prefix + 'animation-delay', displayDelay);
+				span.style.setProperty(options.prefix + 'animation-duration', 0);
+				span.style.setProperty(options.prefix + 'animation-fill-mode', 'forwards');
+				span.style.setProperty(options.prefix + 'animation-timing-function', 'steps(1)');
 				
 				fragment.appendChild(span);
 			}
@@ -67,9 +70,12 @@ var typewriter = (function () {
 
 	}
 
-	function type(element) {
+	function type(element, options) {
 		// wait 10 ms before typing - not exactly sure why i have to do this :(
 		var promise = pinkySwear();
+
+		options.animationend = options.animationend || 'animationend';
+		options.prefix = options.prefix || '';
 
 		setTimeout(function() {
 			
@@ -80,15 +86,16 @@ var typewriter = (function () {
 				// add event listener on last child
 				if (i === children.length - 1) {
 
-					transitionEnd(children[i]).bind(function() {
-						promise(true);
-						transitionEnd(this).unbind();
+					children[i].addEventListener(options.animationend, function(e) {
+						if (e.animationName === 'typewriter') {
+							promise(true);
+						}
 					});
-					
+
 				}
 
 				// show child
-				children[i].className = 'show';
+				children[i].style.setProperty(options.prefix + 'animation-name', 'typewriter');
 
 			}
 		}, 10);
