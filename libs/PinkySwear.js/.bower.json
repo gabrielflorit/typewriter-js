@@ -1,0 +1,15 @@
+{
+  "name": "PinkySwear.js",
+  "homepage": "https://github.com/timjansen/PinkySwear.js",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "392ec8ce3cdb05dfda8da6ecfb3a1706c275334e"
+  },
+  "_source": "git://github.com/timjansen/PinkySwear.js.git",
+  "_target": "~2.0.0",
+  "_originalSource": "timjansen/PinkySwear.js",
+  "_direct": true
+}
