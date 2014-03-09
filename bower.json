@@ -1,0 +1,9 @@
+{
+  "name": "typewriter.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "PinkySwear.js": "timjansen/PinkySwear.js#~2.0.0",
+    "transitionEnd": "EvandroLG/transitionEnd#~1.0.2",
+    "modernizr": "~2.7.2"
+  }
+}

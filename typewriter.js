@@ -1,12 +1,5 @@
 var typewriter = (function () {
 
-	var transitionEndPrefixes = [
-		'webkitTransitionEnd',
-		'oTransitionEnd',
-		'otransitionend',
-		'transitionend'
-	];
-
 	var prefixes = [
 		'-webkit-',
 		'-moz-',
@@ -96,14 +89,11 @@ var typewriter = (function () {
 				// add event listener on last child
 				if (i === children.length - 1) {
 
-					// add all the vendor prefixes
-					// this feels silly to me
-					for (var j = 0; j < transitionEndPrefixes.length; j++) {
-						children[i].addEventListener(transitionEndPrefixes[j], function(event) {
-							promise(true);
-						});
-					}
-
+					transitionEnd(children[i]).bind(function() {
+						promise(true);
+						transitionEnd(this).unbind();
+					});
+					
 				}
 
 				// show child
