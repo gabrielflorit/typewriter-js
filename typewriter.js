@@ -58,14 +58,11 @@ var typewriter = (function () {
 	
 	function prepare(elements, options) {
 
-		// if elements has length, assume it's an array
-		if (elements.length) {
-			for (var i = 0; i < elements.length; i++) {
-				prepareElement(elements[i], options || {});
-			}
-		// otherwise assume it's a single element
-		} else {
-			prepareElement(elements, options || {});
+		// if elements is a single array, turn into array
+		elements = elements.length ? elements : [elements];
+
+		for (var i = 0; i < elements.length; i++) {
+			prepareElement(elements[i], options || {});
 		}
 
 	}
