@@ -12,12 +12,13 @@
 
 	<script src='libs/modernizr/modernizr.js'></script>
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
-	<script src='libs/prefix.js'></script>
+	<script src='libs/vendorPrefix.js'></script>
 	<script src='libs/eventEnd.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
 
 		var animationend = whichEventEnd('animation');
+		var prefix = vendorPrefix;
 
 		typewriter.prepare(document.querySelectorAll('.typewriter'));
 

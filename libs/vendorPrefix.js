@@ -1,5 +1,5 @@
 // modified from http://davidwalsh.name/vendor-prefix
-var prefix = (function() {
+var vendorPrefix = (function() {
 	var styles = window.getComputedStyle(document.documentElement, '');
 	var pre = (Array.prototype.slice
 		.call(styles)
