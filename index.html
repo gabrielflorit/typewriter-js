@@ -30,6 +30,7 @@
 	<script src='libs/modernizr/modernizr.js'></script>
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
 	<script src='libs/transitionEnd/src/transition-end.js'></script>
+	<script src='libs/prefix.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
 
@@ -38,7 +39,9 @@
 			var div = document.querySelectorAll('div')[0];
 
 			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'));
+			typewriter.prepare(div.querySelectorAll('.typewriter'), {
+				prefix: prefix
+			});
 			var paragraphs = div.querySelectorAll('.typewriter-active');
 
 			typewriter.type(paragraphs[0])
@@ -57,7 +60,10 @@
 			var div = document.querySelectorAll('div')[1];
 
 			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'), {delay: 0.1});
+			typewriter.prepare(div.querySelectorAll('.typewriter'), {
+				prefix: prefix,
+				delay: 0.1
+			});
 			var paragraphs = div.querySelectorAll('.typewriter-active');
 
 			typewriter.type(paragraphs[0])
@@ -76,7 +82,10 @@
 			var div = document.querySelectorAll('div')[2];
 
 			// use default delay
-			typewriter.prepare(div.querySelectorAll('.typewriter'), {duration: 1});
+			typewriter.prepare(div.querySelectorAll('.typewriter'), {
+				prefix: prefix,
+				duration: 1
+			});
 			var paragraphs = div.querySelectorAll('.typewriter-active');
 
 			typewriter.type(paragraphs[0])

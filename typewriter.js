@@ -1,12 +1,5 @@
 var typewriter = (function () {
 
-	var prefixes = [
-		'-webkit-',
-		'-moz-',
-		'-o-',
-		''
-	];
-	
 	function prepareElement(element, options) {
 		
 		// grab the text (as long as it doesn't have (&), (<), or (>) - see https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML)
@@ -25,33 +18,26 @@ var typewriter = (function () {
 			// create spans
 			var span;
 			
-			var opts = options || {};
-			
-			var delay;
-			var computedDelay;
-			
+			var displayDelay;
+
 			// use delay if present,
-			if (options.delay) {
-				delay = options.delay;
-				// otherwise use duration if present,
-			} else if (options.duration) {
-				delay = options.duration/characters.length;
-				// otherwise provide default delay
-			} else {
-				delay = 0.05;
-			}
+			// otherwise use duration if present,
+			// otherwise provide default delay
+			var delay = options.delay ? options.delay :
+				options.duration ? options.duration/characters.length :
+				0.05;
+
+			// if no vendor prefix provided, set to blank
+			options.prefix = options.prefix || '';
 			
 			for (i = 0; i < characters.length; i++) {
 				span = document.createElement('span');
 				span.innerHTML = characters[i];
 
-				// using .toFixed(3) - no need to use less than milliseconds
-				computedDelay = (i*delay).toFixed(3)  + 's';
+				// using .toFixed(3) - no need to use greater precision than milliseconds
+				displayDelay = (i*delay).toFixed(3)  + 's';
 
-				// TODO: i get a feeling all this vendor prefix nonsense isn't clever
-				for (var j = 0; j < prefixes.length; j++) {
-					span.style.setProperty(prefixes[j] + 'transition-delay', computedDelay);
-				}
+				span.style.setProperty(options.prefix + 'transition-delay', displayDelay);
 				
 				fragment.appendChild(span);
 			}
