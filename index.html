@@ -19,28 +19,16 @@
 
 		var animationend = whichEventEnd('animation');
 
-		typewriter.prepare(document.querySelectorAll('.one'), {
-			prefix: prefix
-		});
-
-		typewriter.prepare(document.querySelectorAll('.two'), {
-			prefix: prefix,
-			delay: 0.1
-		});
-
-		typewriter.prepare(document.querySelectorAll('.three'), {
-			prefix: prefix,
-			duration: 1
-		});
+		typewriter.prepare(document.querySelectorAll('.typewriter'));
 
 		var paragraphs = document.querySelectorAll('.typewriter-active');
 
 		typewriter.type(paragraphs[0], { animationend: animationend, prefix: prefix })
 			.then(function() {
-				return typewriter.type(paragraphs[1], { animationend: animationend, prefix: prefix });
+				return typewriter.type(paragraphs[1], { animationend: animationend, prefix: prefix, delay: 0.1 });
 			})
 			.then(function() {
-				typewriter.type(paragraphs[2], { animationend: animationend, prefix: prefix });
+				typewriter.type(paragraphs[2], { animationend: animationend, prefix: prefix, duration: 1 });
 			});
 
 	</script>

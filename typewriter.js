@@ -1,6 +1,6 @@
 var typewriter = (function () {
 
-	function prepareElement(element, options) {
+	function prepareElement(element) {
 		
 		// grab the text (as long as it doesn't have (&), (<), or (>) - see https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML)
 		var text = element.innerHTML;
@@ -20,28 +20,9 @@ var typewriter = (function () {
 			
 			var displayDelay;
 
-			// use delay if present,
-			// otherwise use duration if present,
-			// otherwise provide default delay
-			var delay = options.delay ? options.delay :
-				options.duration ? options.duration/characters.length :
-				0.05;
-
-			// if no vendor prefix provided, set to blank
-			options.prefix = options.prefix || '';
-			
 			for (i = 0; i < characters.length; i++) {
 				span = document.createElement('span');
 				span.innerHTML = characters[i];
-
-				// using .toFixed(3) - no need to use greater precision than milliseconds
-				displayDelay = (i*delay).toFixed(3)  + 's';
-
-				span.style.setProperty(options.prefix + 'animation-delay', displayDelay);
-				span.style.setProperty(options.prefix + 'animation-duration', 0);
-				span.style.setProperty(options.prefix + 'animation-fill-mode', 'forwards');
-				span.style.setProperty(options.prefix + 'animation-timing-function', 'steps(1)');
-				
 				fragment.appendChild(span);
 			}
 			
@@ -59,27 +40,37 @@ var typewriter = (function () {
 		
 	}
 	
-	function prepare(elements, options) {
+	function prepare(elements) {
 
 		// if elements is a single array, turn into array
 		elements = elements.length ? elements : [elements];
 
 		for (var i = 0; i < elements.length; i++) {
-			prepareElement(elements[i], options || {});
+			prepareElement(elements[i]);
 		}
 
 	}
 
 	function type(element, options) {
+
 		// wait 10 ms before typing - not exactly sure why i have to do this :(
 		var promise = pinkySwear();
 
-		options.animationend = options.animationend || 'animationend';
-		options.prefix = options.prefix || '';
+		var opts = {};
+		opts.animationend = options.animationend || 'animationend';
+		opts.prefix = options.prefix || '';
 
 		setTimeout(function() {
 			
 			var children = element.children;
+			var displayDelay;
+
+			// use delay if present,
+			// otherwise use duration if present,
+			// otherwise provide default delay
+			opts.delay = options.delay ? options.delay :
+				options.duration ? options.duration/children.length :
+				0.05;
 
 			for (i = 0; i < children.length; i++) {
 
@@ -94,8 +85,11 @@ var typewriter = (function () {
 
 				}
 
-				// show child
-				children[i].style.setProperty(options.prefix + 'animation-name', 'typewriter');
+				// using .toFixed(3) - no need to use greater precision than milliseconds
+				displayDelay = (i*opts.delay).toFixed(3)  + 's';
+
+				// animate
+				children[i].style.setProperty(options.prefix + 'animation', 'typewriter 0 steps(1) ' + displayDelay + ' forwards');
 
 			}
 		}, 10);
