@@ -7,7 +7,6 @@
 	opacity: 0;
 }
 
-@-webkit-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
-   @-moz-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
-     @-o-keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes typewriter { 0% { opacity: 0; } 100% { opacity: 1; } }
+.typewriter-active span.show {
+	opacity: 1;
+}

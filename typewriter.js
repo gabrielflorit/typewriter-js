@@ -8,32 +8,24 @@ var typewriter = (function () {
 		var destination = document.createElement('p');
 		destination.className = 'typewriter-active';
 		
-		if (Modernizr.cssanimations) {
-			
-			var fragment = document.createDocumentFragment();
-			
-			// split text into characters
-			var characters = text.split('');
-			
-			// create spans
-			var span;
-			
-			var displayDelay;
+		var fragment = document.createDocumentFragment();
+		
+		// split text into characters
+		var characters = text.split('');
+		
+		// create spans
+		var span;
+		
+		var displayDelay;
 
-			for (i = 0; i < characters.length; i++) {
-				span = document.createElement('span');
-				span.innerHTML = characters[i];
-				fragment.appendChild(span);
-			}
-			
-			destination.appendChild(fragment);
-			
-		} else {
-			
-			destination.innerHTML = text;
-			
+		for (i = 0; i < characters.length; i++) {
+			span = document.createElement('span');
+			span.innerHTML = characters[i];
+			fragment.appendChild(span);
 		}
 		
+		destination.appendChild(fragment);
+
 		var parent = element.parentNode;
 		parent.insertBefore(destination, element);
 		parent.removeChild(element);
@@ -57,41 +49,45 @@ var typewriter = (function () {
 		var promise = pinkySwear();
 
 		var opts = {};
-		opts.animationend = options.animationend || 'animationend';
-		opts.prefix = options.prefix || '';
+		options = options || {};
 
 		setTimeout(function() {
 			
 			var children = element.children;
-			var displayDelay;
 
 			// use delay if present,
 			// otherwise use duration if present,
 			// otherwise provide default delay
 			opts.delay = options.delay ? options.delay :
 				options.duration ? options.duration/children.length :
-				0.05;
+				50;
 
-			for (i = 0; i < children.length; i++) {
+			var i = 0;
+			var rAF;
 
-				// add event listener on last child
-				if (i === children.length - 1) {
+			function typeCharacter() {
 
-					children[i].addEventListener(options.animationend, function(e) {
-						if (e.animationName === 'typewriter') {
-							promise(true);
-						}
-					});
+				setTimeout(function() {
 
-				}
+					rAF = requestAnimationFrame(typeCharacter);
 
-				// using .toFixed(3) - no need to use greater precision than milliseconds
-				displayDelay = (i*opts.delay).toFixed(3)  + 's';
+					if (i < children.length) {
 
-				// animate
-				children[i].style.setProperty(options.prefix + 'animation', 'typewriter 0 steps(1) ' + displayDelay + ' forwards');
+						children[i].className = 'show';
 
+					} else {
+
+						cancelAnimationFrame(rAF);
+						promise(true);
+					}
+
+					i++;
+
+				}, opts.delay);
 			}
+
+			typeCharacter();
+
 		}, 10);
 		
 		return promise;

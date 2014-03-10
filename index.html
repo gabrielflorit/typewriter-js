@@ -6,30 +6,27 @@
 </head>
 <body>
 
-	<p class='typewriter one'>Default: 0.05s delay between characters.</p>
-	<p class='typewriter two'>Custom delay: 0.1s delay between characters.</p>
-	<p class='typewriter three'>Custom duration: 1s to type each line. This appears to be typed really fast because it's the longest of them all, but that's just because it takes one second.</p>
+	<p class='typewriter one'>Default: 50ms delay between characters.</p>
+	<p>This is not typed.</p>
+	<p class='typewriter two'>Custom delay: 100ms delay between characters.</p>
+	<p>This is not typed.</p>
+	<p class='typewriter three'>Custom duration: 1000ms to type this line.</p>
 
-	<script src='libs/modernizr/modernizr.js'></script>
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
-	<script src='libs/vendorPrefix.js'></script>
-	<script src='libs/eventEnd.js'></script>
+	<script src='libs/requestAnimationFrame.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
-
-		var animationend = whichEventEnd('animation');
-		var prefix = vendorPrefix;
 
 		typewriter.prepare(document.querySelectorAll('.typewriter'));
 
 		var paragraphs = document.querySelectorAll('.typewriter-active');
 
-		typewriter.type(paragraphs[0], { animationend: animationend, prefix: prefix })
+		typewriter.type(paragraphs[0])
 			.then(function() {
-				return typewriter.type(paragraphs[1], { animationend: animationend, prefix: prefix, delay: 0.1 });
+				return typewriter.type(paragraphs[1], { delay: 100 });
 			})
 			.then(function() {
-				typewriter.type(paragraphs[2], { animationend: animationend, prefix: prefix, duration: 1 });
+				typewriter.type(paragraphs[2], { duration: 1000 });
 			});
 
 	</script>
