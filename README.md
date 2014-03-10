@@ -36,21 +36,44 @@ Create elements with class `typewriter`:
 Prepare the elements:
 
 ``` javascript
-var paragraphs = document.querySelectorAll('.typewriter');
-typewriter.prepare(paragraphs);
+typewriter.prepare('.typewriter');
 ```
 
 Type away:
 
 ``` javascript
-typewriter.type(paragraphs[0])
+typewriter.type('.typewriter');
+```
+
+Or you could do the following, for greater control:
+
+``` javascript
+typewriter.type('.three')
 	.then(function() {
-		return typewriter.type(paragraphs[1]);
-	})
+		return typewriter.type('.two');
+	});
 	.then(function() {
-		return typewriter.type(paragraphs[2]);
+		return typewriter.type('.one');
 	});
 ```
+
+Optionally pass in delay:
+
+``` javascript
+typewriter.type('.typewriter', {
+	delay: 10 // milliseconds until next character
+});
+```
+
+or duration:
+
+``` javascript
+typewriter.type('.typewriter', {
+	duration: 1000 // milliseconds until all characters have been typed
+});
+```
+
+NOTE: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
 ## License
 
