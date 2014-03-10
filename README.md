@@ -72,8 +72,8 @@ typewriter.type('.typewriter', {
 	duration: 1000 // milliseconds until all characters have been typed
 });
 ```
-
-NOTE: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
+NOTE 1: if both `delay` and `duration` are present, delay takes priority.
+NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
 ## License
 
