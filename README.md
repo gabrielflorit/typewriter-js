@@ -1,5 +1,13 @@
 # typewriter.js
 
-## TODO
-- write readme
-- add tutorial / how to use / mention dependencies
+Types paragraphs. Features:
+
+- uses requestAnimationFrame
+- paragraphs take up their "finished" space before typing. This means elements after paragraphs don't constantly reflow.
+- returns promises so you can chain paragraphs
+
+
+### dependencies
+
+
+
