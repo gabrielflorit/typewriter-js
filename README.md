@@ -51,3 +51,7 @@ typewriter.type(paragraphs[0])
 		return typewriter.type(paragraphs[2]);
 	});
 ```
+
+## License
+
+MIT © [Gabriel Florit](http://gabrielflor.it)
