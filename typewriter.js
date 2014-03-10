@@ -4,32 +4,17 @@ var typewriter = (function () {
 		
 		// grab the text (as long as it doesn't have (&), (<), or (>) - see https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML)
 		var text = element.innerHTML;
-		
-		var destination = document.createElement('p');
-		destination.className = 'typewriter-active';
-		
-		var fragment = document.createDocumentFragment();
-		
+
 		// split text into characters
 		var characters = text.split('');
-		
-		// create spans
-		var span;
-		
-		var displayDelay;
 
-		for (i = 0; i < characters.length; i++) {
-			span = document.createElement('span');
-			span.innerHTML = characters[i];
-			fragment.appendChild(span);
+		var spans = '';
+
+		for (var i = 0; i < characters.length; i++) {
+			spans += '<span>' + characters[i] + '</span>';
 		}
-		
-		destination.appendChild(fragment);
 
-		var parent = element.parentNode;
-		parent.insertBefore(destination, element);
-		parent.removeChild(element);
-		
+		element.innerHTML = spans;
 	}
 	
 	function prepare(elements) {
@@ -40,7 +25,6 @@ var typewriter = (function () {
 		for (var i = 0; i < elements.length; i++) {
 			prepareElement(elements[i]);
 		}
-
 	}
 
 	function type(element, options) {
@@ -69,6 +53,9 @@ var typewriter = (function () {
 
 				setTimeout(function() {
 
+					// TODO: options.duration doesn't really work
+					// atm it's limited by device refresh rate, e.g. 60
+					// rewrite this to look at time delta since last call
 					rAF = requestAnimationFrame(typeCharacter);
 
 					if (i < children.length) {

@@ -1,14 +1,9 @@
-.typewriter {
-	display: none;
-}
-
-.typewriter-active span {
-	font-family: monospace;
+.typewriter span {
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
 }
 
-.typewriter-active span.show {
+.typewriter span.show {
 	opacity: 1;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
