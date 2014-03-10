@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<title>typewriter.js</title>
+	<meta name='description' content=''>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+
 	<link rel='stylesheet' href='typewriter.css'>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -17,10 +22,10 @@
 			border: solid black 3px;
 			border-style: dashed;
 			margin: 2em auto;
-			width: 10em;
+			width: 5em;
 			padding: 1em;
 			text-transform: uppercase;
-			font-size: 2em;
+			font-size: 1.5em;
 		}
 	</style>
 </head>
@@ -45,10 +50,10 @@
 
 		typewriter.type(paragraphs[0])
 			.then(function() {
-				return typewriter.type(paragraphs[1]);
+				// return typewriter.type(paragraphs[1]);
 			})
 			.then(function() {
-				return typewriter.type(paragraphs[2]);
+				// return typewriter.type(paragraphs[2]);
 			});
 
 	</script>
