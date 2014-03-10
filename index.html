@@ -33,28 +33,30 @@
 
 	<h1><a href='https://github.com/gabrielflorit/typewriter.js'>typewriter.js</a></h1>
 
-	<div class='typewriter'>You have entered the realm of typewriter.js!</div>
+	<div class='typewriter one'>You have entered the realm of typewriter.js!</div>
 
-	<div class='typewriter'>Many dangers await you.</div>
+	<div class='typewriter two'>Many dangers await you.</div>
 
-	<div class='typewriter'>Hurry! The princess is in the castle!</div>
+	<div class='typewriter three'>Hurry! The princess is in the castle!</div>
 
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
 	<script src='libs/requestAnimationFrame.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
 
-		var paragraphs = document.querySelectorAll('.typewriter');
+		typewriter.prepare('.typewriter');
 
-		typewriter.prepare(paragraphs);
+		typewriter.type('.typewriter');
 
-		typewriter.type(paragraphs[0])
-			.then(function() {
-				// return typewriter.type(paragraphs[1]);
-			})
-			.then(function() {
-				// return typewriter.type(paragraphs[2]);
-			});
+		// OR you could do the following, for greater control:
+
+		// typewriter.type('.one')
+		// 	.then(function() {
+		// 		return typewriter.type('.two');
+		// 	});
+		// 	.then(function() {
+		// 		return typewriter.type('.three');
+		// 	});
 
 	</script>
 

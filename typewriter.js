@@ -17,17 +17,16 @@ var typewriter = (function () {
 		element.innerHTML = spans;
 	}
 	
-	function prepare(elements) {
+	function prepare(selector) {
 
-		// if elements is a single array, turn into array
-		elements = elements.length ? elements : [elements];
+		var elements = document.querySelectorAll(selector);
 
 		for (var i = 0; i < elements.length; i++) {
 			prepareElement(elements[i]);
 		}
 	}
 
-	function type(element, options) {
+	function type(selector, options) {
 
 		// wait 10 ms before typing - not exactly sure why i have to do this :(
 		var promise = pinkySwear();
@@ -36,8 +35,8 @@ var typewriter = (function () {
 		options = options || {};
 
 		setTimeout(function() {
-			
-			var children = element.children;
+
+			var children = document.querySelectorAll(selector + ' span');
 
 			// use delay if present,
 			// otherwise use duration if present,
