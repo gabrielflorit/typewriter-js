@@ -3,20 +3,36 @@
 <head>
 	<title>typewriter.js</title>
 	<link rel='stylesheet' href='typewriter.css'>
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+
+	<style>
+		body {
+			font-family: 'VT323', sans-serif;
+			text-align: center;
+		}
+
+		.typewriter {
+			border: solid black 3px;
+			border-style: dashed;
+			margin: 2em auto;
+			width: 10em;
+			padding: 1em;
+			text-transform: uppercase;
+			font-size: 2em;
+		}
+	</style>
 </head>
 <body>
 
-	<p class='typewriter'>Default: 50ms delay between characters.</p>
-	<h3>Note how typewriter elements take up their space before typing has begun. This is by design.</h3>
-	<p class='typewriter'>Custom delay: 100ms delay between characters.</p>
-	<h3>Note how typewriter elements take up their space before typing has begun. This is by design.</h3>
-	<p class='typewriter'>Custom duration: 10000ms to type this line. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<h3>Note how typewriter elements take up their space before typing has begun. This is by design.</h3>
+	<h1><a href='https://github.com/gabrielflorit/typewriter.js'>typewriter.js</a></h1>
+
+	<div class='typewriter'>You have entered the realm of typewriter.js!</div>
+
+	<div class='typewriter'>Many dangers await you.</div>
+
+	<div class='typewriter'>Hurry! The princess is in the castle!</div>
 
 	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
 	<script src='libs/requestAnimationFrame.js'></script>
@@ -29,10 +45,10 @@
 
 		typewriter.type(paragraphs[0])
 			.then(function() {
-				return typewriter.type(paragraphs[1], { delay: 100 });
+				return typewriter.type(paragraphs[1]);
 			})
 			.then(function() {
-				typewriter.type(paragraphs[2], { duration: 1000 });
+				return typewriter.type(paragraphs[2]);
 			});
 
 	</script>
