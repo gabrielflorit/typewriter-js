@@ -23,7 +23,7 @@ Include `typewriter.js` and `typewriter.css`. Make sure to reference [PinkySwear
 
 ### Usage
 
-Create an element with class `typewriter`:
+Create elements with class `typewriter`:
 
 ``` html
 <p class='typewriter one'>Lorem ipsum dolor sit amet.</p>
@@ -31,14 +31,12 @@ Create an element with class `typewriter`:
 <p class='typewriter three'>Excepteur sint occaecat cupidatat non proident.</p>
 ```
 
-Prepare the element:
+Prepare the elements:
 
 ``` javascript
 var paragraphs = document.querySelectorAll('.typewriter');
 typewriter.prepare(paragraphs);
 ```
-
-
 
 Type away:
 
