@@ -29,55 +29,56 @@ var typewriter = (function () {
 
 	function type(selector, options) {
 
-		// wait 10 ms before typing - not exactly sure why i have to do this :(
-		var promise = pinkySwear();
+		return new Promise(function(resolve, reject) {
 
-		var opts = {};
-		options = options || {};
+			var opts = {};
+			options = options || {};
 
-		setTimeout(function() {
+			// wait 10 ms before typing - not exactly sure why i have to do this :(
+			setTimeout(function() {
 
-			var children = document.querySelectorAll(selector + ' span');
+				var children = document.querySelectorAll(selector + ' span');
 
-			// use delay if present,
-			// otherwise use duration if present,
-			// otherwise provide default delay
-			opts.delay = options.delay ? options.delay :
-				options.duration ? options.duration/children.length :
-				50;
+				// use delay if present,
+				// otherwise use duration if present,
+				// otherwise provide default delay
+				opts.delay = options.delay ? options.delay :
+					options.duration ? options.duration/children.length :
+					50;
 
-			var i = 0;
-			var rAF;
+				var i = 0;
+				var rAF;
 
-			function typeCharacter() {
+				function typeCharacter() {
 
-				setTimeout(function() {
+					setTimeout(function() {
 
-					// TODO: options.duration doesn't really work
-					// atm it's limited by device refresh rate, e.g. 60
-					// rewrite this to look at time delta since last call
-					rAF = requestAnimationFrame(typeCharacter);
+						// TODO: options.duration doesn't really work
+						// atm it's limited by device refresh rate, e.g. 60
+						// rewrite this to look at time delta since last call
+						rAF = requestAnimationFrame(typeCharacter);
 
-					if (i < children.length) {
+						if (i < children.length) {
 
-						children[i].className += ' show';
+							children[i].className += ' show';
 
-					} else {
+						} else {
 
-						cancelAnimationFrame(rAF);
-						promise(true);
-					}
+							cancelAnimationFrame(rAF);
+							resolve();
+						}
 
-					i++;
+						i++;
 
-				}, opts.delay);
-			}
+					}, opts.delay);
+				}
 
-			typeCharacter();
+				typeCharacter();
 
-		}, 10);
-		
-		return promise;
+			}, 10);
+
+		});
+
 	}
 	
 	return {

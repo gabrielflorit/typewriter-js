@@ -42,24 +42,23 @@
 
 	<div class='typewriter three'>Hurry! The princess is in the castle!</div>
 
-	<script src='libs/PinkySwear.js/pinkyswear.js'></script>
+	<script src='libs/promise-0.1.1.js'></script>
 	<script src='libs/requestAnimationFrame.js'></script>
 	<script src='typewriter.js'></script>
 	<script>
 
 		typewriter.prepare('.typewriter');
 
-		typewriter.type('.typewriter');
+		// typewriter.type('.typewriter');
 
 		// OR you could do the following, for greater control:
-
-		// typewriter.type('.one')
-		// 	.then(function() {
-		// 		return typewriter.type('.two');
-		// 	});
-		// 	.then(function() {
-		// 		return typewriter.type('.three');
-		// 	});
+		typewriter.type('.three')
+			.then(function() {
+				return typewriter.type('.two');
+			})
+			.then(function() {
+				typewriter.type('.one');
+			});
 
 	</script>
 

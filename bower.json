@@ -1,7 +1,6 @@
 {
   "name": "typewriter.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
-    "PinkySwear.js": "timjansen/PinkySwear.js#~2.0.0"
   }
 }

@@ -7,17 +7,17 @@ Adds typewriter effect to HTML elements. Features:
 - Uses requestAnimationFrame for better mobile performance.
 - Paragraphs take up their "finished" space before typing. This means elements after paragraphs don't constantly reflow.
 - Returns promises so you can chain paragraph animations.
-- **338 bytes gzipped, 527 bytes uncompressed**.
+- **382 bytes gzipped, 619 bytes uncompressed**.
 
 
 ### Install
 
-Include `typewriter.js` and `typewriter.css`. Make sure to reference [PinkySwear](https://github.com/timjansen/pinkyswear.js) and [requestAnimationFrame](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) first:
+Include `typewriter.js` and `typewriter.css`. Make sure to reference the [promises polyfill](http://www.html5rocks.com/en/tutorials/es6/promises/) and [requestAnimationFrame](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) first:
 
 ``` html
 <link rel='stylesheet' href='typewriter.css'>
 ...
-<script src='libs/PinkySwear.js/pinkyswear.js'></script>
+<script src='libs/promise-0.1.1.js'></script>
 <script src='libs/requestAnimationFrame.js'></script>
 <script src='typewriter.js'></script>
 ```
