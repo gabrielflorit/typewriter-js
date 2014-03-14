@@ -11,7 +11,8 @@ var typewriter = (function () {
 		var spans = '';
 
 		for (var i = 0; i < characters.length; i++) {
-			spans += '<span>' + characters[i] + '</span>';
+
+			spans += '<span' + (characters[i] === ' ' ? ' class="whitespace"' : '') + '>' + characters[i] + '</span>';
 		}
 
 		element.innerHTML = spans;
@@ -59,7 +60,7 @@ var typewriter = (function () {
 
 					if (i < children.length) {
 
-						children[i].className = 'show';
+						children[i].className += ' show';
 
 					} else {
 
