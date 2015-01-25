@@ -1,6 +1,6 @@
-var typewriter = (function () {
+module.exports = {
 
-	function prepareElement(element) {
+	prepareElement: function(element) {
 		
 		// grab the text (as long as it doesn't have (&), (<), or (>) - see https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML)
 		var text = element.innerHTML;
@@ -16,18 +16,18 @@ var typewriter = (function () {
 		}
 
 		element.innerHTML = spans;
-	}
+	},
 	
-	function prepare(selector) {
+	prepare: function(selector) {
 
 		var elements = document.querySelectorAll(selector);
 
 		for (var i = 0; i < elements.length; i++) {
 			prepareElement(elements[i]);
 		}
-	}
+	},
 
-	function type(selector, options) {
+	type: function(selector, options) {
 
 		return new Promise(function(resolve, reject) {
 
@@ -80,10 +80,5 @@ var typewriter = (function () {
 		});
 
 	}
-	
-	return {
-		prepare: prepare,
-		type: type
-	};
-	
-})();
+
+};

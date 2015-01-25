@@ -1,0 +1,19 @@
+{
+  "name": "typewriter.js",
+  "version": "0.0.3",
+  "description": "Adds typewriter effect to HTML elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielflorit/typewriter.js.git"
+  },
+  "author": "Gabriel Florit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielflorit/typewriter.js/issues"
+  },
+  "homepage": "https://github.com/gabrielflorit/typewriter.js"
+}
