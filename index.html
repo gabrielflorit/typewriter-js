@@ -42,25 +42,7 @@
 
 	<div class='typewriter three'>Hurry! The princess is in the castle!</div>
 
-	<script src='libs/promise-0.1.1.js'></script>
-	<script src='libs/requestAnimationFrame.js'></script>
-	<script src='typewriter.js'></script>
-	<script>
-
-		typewriter.prepare('.typewriter');
-
-		// typewriter.type('.typewriter');
-
-		// OR you could do the following, for greater control:
-		typewriter.type('.three')
-			.then(function() {
-				return typewriter.type('.two');
-			})
-			.then(function() {
-				typewriter.type('.one');
-			});
-
-	</script>
+	<script src='dist.js'></script>
 
 </body>
 </html>
