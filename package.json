@@ -1,5 +1,5 @@
 {
-  "name": "typewriter.js",
+  "name": "typewriter-js",
   "version": "0.0.4",
   "description": "Adds typewriter effect to HTML elements.",
   "main": "index.js",
