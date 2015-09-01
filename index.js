@@ -1,7 +1,7 @@
 module.exports = {
 
 	prepareElement: function(element) {
-		
+
 		// grab the text (as long as it doesn't have (&), (<), or (>) - see https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML)
 		var text = element.innerHTML;
 
@@ -17,7 +17,7 @@ module.exports = {
 
 		element.innerHTML = spans;
 	},
-	
+
 	prepare: function(selector) {
 
 		var elements = document.querySelectorAll(selector);
@@ -43,7 +43,7 @@ module.exports = {
 				// otherwise use duration if present,
 				// otherwise provide default delay
 				opts.delay = options.delay ? options.delay :
-					options.duration ? options.duration/children.length :
+					options.duration ? options.duration / children.length :
 					50;
 
 				var i = 0;
