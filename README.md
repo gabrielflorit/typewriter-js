@@ -12,15 +12,9 @@ Adds typewriter effect to HTML elements. Features:
 
 ### Install
 
-Include `typewriter.js` and `typewriter.css`. Make sure to reference the [promises polyfill](http://www.html5rocks.com/en/tutorials/es6/promises/) and [requestAnimationFrame](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) first:
+`npm install typewriter-js`
 
-``` html
-<link rel='stylesheet' href='typewriter.css'>
-...
-<script src='libs/promise-0.1.1.js'></script>
-<script src='libs/requestAnimationFrame.js'></script>
-<script src='typewriter.js'></script>
-```
+Make sure you also reference `typewriter.css`.
 
 
 ### Usage
@@ -31,6 +25,13 @@ Create elements with class `typewriter`:
 <p class='typewriter one'>Lorem ipsum dolor sit amet.</p>
 <p class='typewriter two'>Ut enim ad minim veniam.</p>
 <p class='typewriter three'>Excepteur sint occaecat cupidatat non proident.</p>
+```
+
+
+Require the library:
+
+``` javascript
+var typewriter = require('typewriter-js');
 ```
 
 Prepare the elements:
