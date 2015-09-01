@@ -1,3 +1,8 @@
+var AnimationFrame = require('animation-frame');
+AnimationFrame.shim();
+
+var Promise = require('es6-promise').Promise;
+
 module.exports = {
 
 	prepareElement: function(element) {
@@ -23,7 +28,7 @@ module.exports = {
 		var elements = document.querySelectorAll(selector);
 
 		for (var i = 0; i < elements.length; i++) {
-			prepareElement(elements[i]);
+			this.prepareElement(elements[i]);
 		}
 	},
 
