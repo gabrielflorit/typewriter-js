@@ -45,7 +45,15 @@ module.exports = {
 				var children = document.querySelectorAll(selector + ' span');
 
 				if (mode === "untype") {
+
+					// reverse children
 					children = Array.prototype.slice.call(children).reverse();
+
+					// give 'show' class to all children immediately
+					for (var j = 0; j < children.length; j++) {
+						children[j].className += ' show';
+					}
+
 				}
 
 				// use delay if present,
