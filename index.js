@@ -51,7 +51,9 @@ module.exports = {
 
 					// give 'show' class to all children immediately
 					for (var j = 0; j < children.length; j++) {
-						children[j].className += ' show';
+						if (children[j].className.search('show') < 0) {
+							children[j].className += ' show';
+						}
 					}
 
 				}
