@@ -84,7 +84,7 @@ typewriter.untype('.typewriter', {
 
 NOTE 1: If both **delay** and **duration** are present, **delay** takes priority.
 
-NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
+NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So **duration** is sort of broken.
 
 ## Contributors
 
