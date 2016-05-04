@@ -86,6 +86,11 @@ NOTE 1: If both **delay** and **duration** are present, **delay** takes priority
 
 NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
+## Contributors
+
+- [Gabriel Florit](https://gabrielflorit.github.io)
+- [Michael Shick](https://github.com/mshick)
+
 ## License
 
-MIT © [Gabriel Florit](http://gabrielflor.it)
+MIT © [Gabriel Florit](http://gabrielflorit.github.io)
