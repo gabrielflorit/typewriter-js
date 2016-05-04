@@ -32,7 +32,7 @@ module.exports = {
 		}
 	},
 
-	type: function(selector, options) {
+	toggleType: function(mode, selector, options) {
 
 		return new Promise(function(resolve, reject) {
 
@@ -43,6 +43,10 @@ module.exports = {
 			setTimeout(function() {
 
 				var children = document.querySelectorAll(selector + ' span');
+
+				if (mode === "untype") {
+					children = Array.prototype.slice.call(children).reverse();
+				}
 
 				// use delay if present,
 				// otherwise use duration if present,
@@ -65,7 +69,11 @@ module.exports = {
 
 						if (i < children.length) {
 
-							children[i].className += ' show';
+							if (mode === "type") {
+								children[i].className += ' show';
+							} else {
+								children[i].className = children[i].className.replace(' show', '');
+							}
 
 						} else {
 
@@ -84,6 +92,15 @@ module.exports = {
 
 		});
 
-	}
+	},
 
+	type: function(selector, options) {
+
+		return this.toggleType('type', selector, options);
+	},
+
+	untype: function(selector, options) {
+
+		return this.toggleType('untype', selector, options);
+	}
 };
