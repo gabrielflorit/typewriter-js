@@ -7,7 +7,7 @@ typewriter.prepare('.typewriter');
 // OR you could do the following, for greater control:
 typewriter.type('.three')
 .then(function() {
-	return typewriter.type('.two');
+	return typewriter.untype('.two');
 })
 .then(function() {
 	typewriter.type('.one');
