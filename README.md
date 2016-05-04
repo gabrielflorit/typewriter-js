@@ -9,6 +9,9 @@ Adds typewriter effect to HTML elements. Features:
 - Returns promises so you can chain paragraph animations.
 - **382 bytes gzipped, 619 bytes uncompressed**.
 
+### Real-world examples
+
+- http://apps.bostonglobe.com/spotlight/clash-in-the-name-of-care/story/
 
 ### Install
 
