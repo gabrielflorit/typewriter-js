@@ -73,16 +73,18 @@ typewriter.type('.typewriter', {
 	duration: 1000 // milliseconds until all characters have been typed
 });
 ```
-NOTE 1: if both `delay` and `duration` are present, delay takes priority.
-NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
-You can also untype text, it works exactly like `type`:
+You can also untype text. It works exactly like `type`:
 
 ``` javascript
 typewriter.untype('.typewriter', {
   duration: 1000
 });
 ```
+
+NOTE 1: If both `delay` and `duration` are present, `delay` takes priority.
+
+NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
 ## License
 
