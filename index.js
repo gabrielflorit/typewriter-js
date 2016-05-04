@@ -3,11 +3,6 @@ AnimationFrame.shim();
 
 var Promise = require('es6-promise').Promise;
 
-var toggleType = function (mode, selector, options) {
-
-
-};
-
 module.exports = {
 
 	prepareElement: function(element) {
@@ -101,11 +96,11 @@ module.exports = {
 
 	type: function(selector, options) {
 
-		return toggleType('type', selector, options);
+		return this.toggleType('type', selector, options);
 	},
 
 	untype: function(selector, options) {
 
-		return toggleType('untype', selector, options);
+		return this.toggleType('untype', selector, options);
 	}
 };
