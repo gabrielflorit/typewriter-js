@@ -58,7 +58,7 @@ typewriter.type('.three')
 	});
 ```
 
-Optionally pass in delay:
+Optionally pass in **delay**:
 
 ``` javascript
 typewriter.type('.typewriter', {
@@ -66,7 +66,7 @@ typewriter.type('.typewriter', {
 });
 ```
 
-or duration:
+or **duration**:
 
 ``` javascript
 typewriter.type('.typewriter', {
@@ -74,7 +74,7 @@ typewriter.type('.typewriter', {
 });
 ```
 
-You can also untype text. It works exactly like `type`:
+You can also **untype** text. It works exactly like **type**:
 
 ``` javascript
 typewriter.untype('.typewriter', {
@@ -82,7 +82,7 @@ typewriter.untype('.typewriter', {
 });
 ```
 
-NOTE 1: If both `delay` and `duration` are present, `delay` takes priority.
+NOTE 1: If both **delay** and **duration** are present, **delay** takes priority.
 
 NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So `duration` is sort of broken.
 
