@@ -4,7 +4,7 @@
   "description": "Adds typewriter effect to HTML elements.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack demo.js dist.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "dependencies": {
     "animation-frame": "^0.2.5",
     "es6-promise": "^3.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.0"
   }
 }
