@@ -7,7 +7,6 @@ Adds typewriter effect to HTML elements. Features:
 - Uses requestAnimationFrame for better mobile performance.
 - Paragraphs take up their "finished" space before typing. This means elements after paragraphs don't constantly reflow.
 - Returns promises so you can chain paragraph animations.
-- **382 bytes gzipped, 619 bytes uncompressed**.
 
 ### Real-world examples
 
