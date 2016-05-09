@@ -18,8 +18,7 @@
   "homepage": "https://github.com/gabrielflorit/typewriter-js",
   "dependencies": {
     "animation-frame": "^0.2.5",
-    "element-class": "^0.2.2",
-    "es6-promise": "^3.0.2"
+    "element-class": "^0.2.2"
   },
   "devDependencies": {
     "webpack": "^1.13.0"

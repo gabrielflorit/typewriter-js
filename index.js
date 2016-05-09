@@ -2,8 +2,6 @@ var AnimationFrame = require('animation-frame');
 AnimationFrame.shim();
 var elementClass = require('element-class');
 
-var Promise = require('es6-promise').Promise;
-
 module.exports = {
 
 	prepareElement: function(element) {

@@ -19,6 +19,9 @@ Adds typewriter effect to HTML elements. Features:
 
 Make sure you also reference `typewriter.css`.
 
+### Dependencies
+
+- This module relies on `Promise` being available. You might want to use a [polyfill](https://github.com/stefanpenner/es6-promise) to patch [older browsers](http://caniuse.com/#search=promise).
 
 ### Usage
 
