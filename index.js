@@ -1,5 +1,6 @@
 var AnimationFrame = require('animation-frame');
 AnimationFrame.shim();
+var elementClass = require('element-class');
 
 var Promise = require('es6-promise').Promise;
 
@@ -51,7 +52,7 @@ module.exports = {
 
 					// give 'show' class to all children immediately
 					for (var j = 0; j < children.length; j++) {
-						children[j].className += ' show';
+						elementClass(children[j]).add('show');
 					}
 
 				}
@@ -78,9 +79,9 @@ module.exports = {
 						if (i < children.length) {
 
 							if (mode === "type") {
-								children[i].className += ' show';
+								elementClass(children[i]).add('show');
 							} else {
-								children[i].className = children[i].className.replace(' show', '');
+								elementClass(children[i]).remove('show');
 							}
 
 						} else {
