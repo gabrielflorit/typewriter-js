@@ -1,6 +1,6 @@
 # typewriter.js
 
-**[DEMO](http://gabrielflorit.github.io/typewriter.js/)**
+**[DEMO](http://gabrielflorit.github.io/typewriter-js/)**
 
 Adds typewriter effect to HTML elements. Features:
 
