@@ -63,6 +63,8 @@ typewriter.type('.three')
 	});
 ```
 
+#### Options
+
 Optionally pass in **delay**:
 
 ``` javascript
@@ -87,6 +89,14 @@ typewriter.untype('.typewriter', {
 });
 ```
 
+It is also possible to turn the cursor on:
+
+```javascript
+typewriter.type('.typewriter', {
+	showCursor: true // defaults to `false`
+});
+```
+
 NOTE 1: If both **delay** and **duration** are present, **delay** takes priority.
 
 NOTE 2: At the moment you won't be able to type faster than your device's refresh rate. So **duration** is sort of broken.
@@ -95,6 +105,7 @@ NOTE 2: At the moment you won't be able to type faster than your device's refres
 
 - [Gabriel Florit](https://gabrielflorit.github.io)
 - [Michael Shick](https://github.com/mshick)
+- [Nikita Sobolev](https://github.com/sobolevn)
 
 ## License
 
