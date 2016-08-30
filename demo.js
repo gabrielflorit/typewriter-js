@@ -5,12 +5,11 @@ typewriter.prepare('.typewriter');
 // typewriter.type('.typewriter');
 
 // OR you could do the following, for greater control:
-typewriter.type('.three')
+typewriter.type('.three', { showCursor: true })
 .then(function() {
 	typewriter.untype('.two');
-	return typewriter.untype('.three');
+	return typewriter.untype('.three', { showCursor: true });
 })
 .then(function() {
-	typewriter.type('.one');
+	typewriter.type('.one', { showCursor: true });
 });
-

@@ -82,10 +82,29 @@ module.exports = {
 								elementClass(children[i]).remove('show');
 							}
 
+							if (options.showCursor) {
+								// remove current cursor class:
+								var currentCursor = i + (mode === 'type' ? -1 : 0);
+								if (currentCursor in children) {
+									elementClass(children[currentCursor]).remove('cursor');
+								}
+
+								// appending new one:
+								var target = i + (mode === 'type' ? 0 : 1);
+								if (target in children) {
+									elementClass(children[target]).add('cursor');
+								}
+							}
+
 						} else {
 
 							cancelAnimationFrame(rAF);
 							resolve();
+
+							if (options.showCursor) {
+								// adding blink animation to the last element:
+								elementClass(children[children.length - 1]).add('cursor-blink');
+							}
 						}
 
 						i++;
